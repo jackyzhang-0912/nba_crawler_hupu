@@ -1,4 +1,3 @@
-#coding = gbk
 '''
 #爬虫的一般步骤:
 1.确定url地址（网页分析） -- 完成一半
@@ -9,9 +8,8 @@
 
 import requests
 import parsel
-import csv
-import os
 import pandas as pd
+
 
 # 1.确定url地址（网页分析）（静态网页/动态网页）
 url = 'https://nba.hupu.com/stats/players'
@@ -62,10 +60,6 @@ for tr in trs:
     #     threepoint_percentage, freeshows_made, freeshow_rate, games, playing_time)
     dt = dt.append(dic, ignore_index=True)
 
-dt.to_csv("NBA_Data.csv", index=0)
+print(dt)
+dt.to_csv("NBA_Data.csv", index=0,encoding='utf_8_sig')
 
-
-#     data_dict = {
-#                 '排名': rank, '球员': player, '球队': team, '得分': score,
-#                 '命中-出手': shots_made, '命中率': shooting_percentage, '命中-三分': threes_made, '三分命中率': threepoint_percentage,
-#                 '命中-罚球': freeshows_made, '罚球命中率': freeshow_rate, '场次': games, '上场时间': playing_time}
